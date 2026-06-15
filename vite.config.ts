@@ -3,7 +3,11 @@ import vue from '@vitejs/plugin-vue'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  // GitHub Pages 部署在 https://<user>.github.io/admin-flow/，
+  // 所以 production build 時要加上 repo 名稱作為 base path；
+  // 本機開發（dev server）維持 '/' 即可。
+  base: command === 'build' ? '/admin-flow/' : '/',
   plugins: [vue(), tailwindcss()],
   resolve: {
     alias: {
@@ -40,4 +44,4 @@ export default defineConfig({
     },
     minify: 'terser',
   },
-})
+}))
