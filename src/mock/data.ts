@@ -22,7 +22,6 @@ export const mockUsers: User.Item[] = [
 ]
 
 // ===================== 商品資料 =====================
-const categories = ['3C電子', '服飾', '食品', '家居', '書籍', '運動']
 export const mockProducts: Product.Item[] = [
   { id: 1, name: 'iPhone 15 Pro', category: '3C電子', price: 38900, stock: 120, status: 'active', description: '最新款 Apple 旗艦手機', createdAt: '2024-01-10 10:00:00', updatedAt: '2024-04-01 09:00:00' },
   { id: 2, name: 'MacBook Air M3', category: '3C電子', price: 42800, stock: 85, status: 'active', description: '輕薄高效能筆電', createdAt: '2024-01-12 11:00:00', updatedAt: '2024-04-02 10:00:00' },

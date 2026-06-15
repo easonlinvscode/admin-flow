@@ -175,7 +175,7 @@ const handleUpdateStatus = async () => {
   if (!orderData.value || !newStatus.value) return
   updating.value = true
   try {
-    await orderAPI.update(orderData.value.id, { status: newStatus.value })
+    await orderAPI.update(orderData.value.id, { status: newStatus.value as Order.Item['status'] })
     orderData.value.status = newStatus.value as Order.Item['status']
     orderData.value.updatedAt = new Date().toLocaleString('zh-TW')
     ElMessage.success(`訂單狀態已更新為「${ORDER_STATUS_LABELS[newStatus.value]}」`)

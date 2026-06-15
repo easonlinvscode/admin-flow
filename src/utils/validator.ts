@@ -62,7 +62,7 @@ export function createFormRules() {
     email: [
       { required: true, message: '郵箱不能為空', trigger: 'blur' },
       {
-        validator: (rule: any, value: string, callback: any) => {
+        validator: (_rule: any, value: string, callback: any) => {
           const result = validators.email(value)
           if (result === true) {
             callback()
@@ -76,7 +76,7 @@ export function createFormRules() {
     password: [
       { required: true, message: '密碼不能為空', trigger: 'blur' },
       {
-        validator: (rule: any, value: string, callback: any) => {
+        validator: (_rule: any, value: string, callback: any) => {
           const result = validators.password(value)
           if (result === true) {
             callback()
@@ -90,7 +90,7 @@ export function createFormRules() {
     username: [
       { required: true, message: '用戶名不能為空', trigger: 'blur' },
       {
-        validator: (rule: any, value: string, callback: any) => {
+        validator: (_rule: any, value: string, callback: any) => {
           const result = validators.username(value)
           if (result === true) {
             callback()
@@ -104,7 +104,7 @@ export function createFormRules() {
     phone: [
       { required: true, message: '手機號不能為空', trigger: 'blur' },
       {
-        validator: (rule: any, value: string, callback: any) => {
+        validator: (_rule: any, value: string, callback: any) => {
           const result = validators.phone(value)
           if (result === true) {
             callback()

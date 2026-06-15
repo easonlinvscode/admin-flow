@@ -53,8 +53,9 @@ export namespace User {
   export interface UpdateRequest {
     username?: string;
     email?: string;
-    role?: string;
-    status?: string;
+    password?: string;
+    role?: Item['role'];
+    status?: Item['status'];
   }
 
   export interface ListResponse {
@@ -101,7 +102,7 @@ export namespace Product {
     category?: string;
     price?: number;
     stock?: number;
-    status?: string;
+    status?: Item['status'];
     description?: string;
     image?: string;
   }
@@ -149,7 +150,7 @@ export namespace Order {
   }
 
   export interface UpdateRequest {
-    status?: string;
+    status?: Item['status'];
   }
 
   export interface ListResponse {

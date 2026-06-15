@@ -1,12 +1,28 @@
-import axios, { type AxiosInstance, type AxiosError } from 'axios'
+import axios, { type AxiosInstance, type AxiosError, type AxiosRequestConfig } from 'axios'
 import { ElMessage } from 'element-plus'
 import { tokenManager } from '@/utils/storage'
 
+/**
+ * 響應攔截器已經把 `.data` 解包，實際 resolve 的就是業務資料 T，
+ * 但 axios 原生型別仍宣告為 AxiosResponse<T>。
+ * 這裡覆寫常用方法的型別，讓呼叫端能拿到正確的 Promise<T>，
+ * 與 mock 模式（直接 Promise.resolve(T)）的型別保持一致。
+ */
+interface TypedAxiosInstance extends Omit<AxiosInstance, 'get' | 'post' | 'put' | 'delete' | 'patch'> {
+  // 保留可呼叫簽名（Omit 會移除原有的 call signature），供攔截器內部重試請求使用
+  <T = any>(config: AxiosRequestConfig): Promise<T>
+  get<T = any>(url: string, config?: AxiosRequestConfig): Promise<T>
+  post<T = any>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<T>
+  put<T = any>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<T>
+  delete<T = any>(url: string, config?: AxiosRequestConfig): Promise<T>
+  patch<T = any>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<T>
+}
+
 // 創建 axios 實例
-const request: AxiosInstance = axios.create({
+const request = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
   timeout: 10000,
-})
+}) as TypedAxiosInstance
 
 // 標記防止無限循環刷新 Token
 let isRefreshing = false

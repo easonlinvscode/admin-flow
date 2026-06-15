@@ -42,6 +42,7 @@ export default defineConfig(({ command }) => ({
         },
       },
     },
-    minify: 'terser',
+    // esbuild 為 Vite 內建壓縮器，無需額外安裝套件，速度也比 terser 快
+    minify: 'esbuild',
   },
 }))

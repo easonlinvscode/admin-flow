@@ -106,7 +106,7 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
 import { debounce } from 'lodash-es'
-import { ElMessage, ElMessageBox } from 'element-plus'
+import { ElMessage } from 'element-plus'
 import { Plus, Refresh, Download } from '@element-plus/icons-vue'
 import { userAPI } from '@/api/modules/user'
 import { ROLE_LABELS } from '@/utils/constants'

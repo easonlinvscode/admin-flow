@@ -93,7 +93,7 @@ const router = createRouter({
 /**
  * 路由守衛
  */
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async (to, _from, next) => {
   const authStore = useAuthStore()
 
   // 設置頁面標題

@@ -14,7 +14,7 @@ app.use(router)
 app.use(ElementPlus)
 
 // 全局錯誤處理
-app.config.errorHandler = (err, instance, info) => {
+app.config.errorHandler = (err, _instance, info) => {
   console.error(`Error: ${info}`, err)
 }
 

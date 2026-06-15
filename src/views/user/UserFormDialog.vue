@@ -88,7 +88,13 @@ const formRef = ref<FormInstance>()
 const loading = ref(false)
 
 // 表單數據
-const formData = reactive({
+const formData = reactive<{
+  username: string
+  email: string
+  password: string
+  role: User.Item['role']
+  status: User.Item['status']
+}>({
   username: '',
   email: '',
   password: '',
