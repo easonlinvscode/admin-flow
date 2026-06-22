@@ -55,7 +55,7 @@
         <el-table-column prop="userName" label="客戶名稱" />
         <el-table-column label="金額" width="120" align="right">
           <template #default="{ row }">
-            <span class="amount-text">¥{{ row.totalAmount.toLocaleString('zh-TW') }}</span>
+            <span class="amount-text">${{ row.totalAmount.toLocaleString('zh-TW') }}</span>
           </template>
         </el-table-column>
         <el-table-column label="狀態" width="100" align="center">

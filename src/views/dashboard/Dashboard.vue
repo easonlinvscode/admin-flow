@@ -107,7 +107,7 @@
         <el-table-column prop="userName" label="客戶" />
         <el-table-column label="金額" align="right" width="120">
           <template #default="{ row }">
-            ¥{{ row.totalAmount.toLocaleString('zh-TW') }}
+            ${{ row.totalAmount.toLocaleString('zh-TW') }}
           </template>
         </el-table-column>
         <el-table-column prop="status" label="狀態" width="100">
@@ -146,8 +146,8 @@ const stats = ref<Dashboard.Statistics>({
 
 const formattedRevenue = computed(() => {
   const val = stats.value.totalRevenue
-  if (val >= 10000) return `¥${(val / 10000).toFixed(1)}萬`
-  return `¥${val.toLocaleString('zh-TW')}`
+  if (val >= 10000) return `$${(val / 10000).toFixed(1)}萬`
+  return `$${val.toLocaleString('zh-TW')}`
 })
 
 // ─── 最近訂單 ──────────────────────────────────────────────
@@ -204,7 +204,7 @@ const initSalesChart = (data: Dashboard.SalesData[]) => {
   salesChart.setOption({
     tooltip: {
       trigger: 'item',
-      formatter: '{b}: ¥{c} ({d}%)',
+      formatter: '{b}: ${c} ({d}%)',
     },
     legend: {
       orient: 'vertical',

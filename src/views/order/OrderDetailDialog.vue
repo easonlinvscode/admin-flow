@@ -15,7 +15,7 @@
           </el-descriptions-item>
           <el-descriptions-item label="客戶名稱">{{ orderData.userName }}</el-descriptions-item>
           <el-descriptions-item label="訂單金額">
-            <span class="amount-text">¥{{ orderData.totalAmount.toLocaleString('zh-TW') }}</span>
+            <span class="amount-text">${{ orderData.totalAmount.toLocaleString('zh-TW') }}</span>
           </el-descriptions-item>
           <el-descriptions-item label="建立時間">{{ orderData.createdAt }}</el-descriptions-item>
           <el-descriptions-item label="更新時間">{{ orderData.updatedAt }}</el-descriptions-item>
@@ -84,17 +84,17 @@
           <el-table :data="orderData.items" border size="small">
             <el-table-column prop="productName" label="商品名稱" />
             <el-table-column prop="price" label="單價" width="100" align="right">
-              <template #default="{ row }">¥{{ row.price.toLocaleString('zh-TW') }}</template>
+              <template #default="{ row }">${{ row.price.toLocaleString('zh-TW') }}</template>
             </el-table-column>
             <el-table-column prop="quantity" label="數量" width="80" align="center" />
             <el-table-column label="小計" width="110" align="right">
               <template #default="{ row }">
-                <strong>¥{{ (row.price * row.quantity).toLocaleString('zh-TW') }}</strong>
+                <strong>${{ (row.price * row.quantity).toLocaleString('zh-TW') }}</strong>
               </template>
             </el-table-column>
           </el-table>
           <div class="total-row">
-            合計：<strong class="amount-text">¥{{ orderData.totalAmount.toLocaleString('zh-TW') }}</strong>
+            合計：<strong class="amount-text">${{ orderData.totalAmount.toLocaleString('zh-TW') }}</strong>
           </div>
         </div>
       </template>

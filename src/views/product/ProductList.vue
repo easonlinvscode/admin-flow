@@ -68,7 +68,7 @@
         </el-table-column>
         <el-table-column label="售價" width="110" align="right">
           <template #default="{ row }">
-            <span class="price-text">¥{{ row.price.toLocaleString('zh-TW') }}</span>
+            <span class="price-text">${{ row.price.toLocaleString('zh-TW') }}</span>
           </template>
         </el-table-column>
         <el-table-column prop="stock" label="庫存" width="80" align="center">
